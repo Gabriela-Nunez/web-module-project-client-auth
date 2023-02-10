@@ -3,7 +3,29 @@ import React from "react";
 
 const FriendsList = () => {
   return (
-    <h2>Hi from FriendsList</h2>
+    <div>
+      <h2>Friends List</h2>
+      <ul>
+        <li>
+        name-email-age
+        </li>
+        <li>
+        name-email-age
+        </li>
+        <li>
+        name-email-age
+        </li>
+        <li>
+        name-email-age
+        </li>
+        <li>
+        name-email-age
+        </li>
+        <li>
+        name-email-age
+        </li>
+      </ul>
+    </div>
   )
 }
 
