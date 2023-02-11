@@ -1,20 +1,48 @@
 import React from "react";
-
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
+  const navigate  = useNavigate();
+  const [credentials, setCredentials] = useState({
+    username:'',
+    password:''
+  });
+
+const handleChange = (e) => {
+  setCredentials({
+    ...credentials,
+    [e.target.name]: e.target.value
+  })
+}
+
+
+const login = (e) => {
+  e.preventDefault();
+  axios.post('http://localhost:9000/api/login', credentials)
+  .then(res => {
+    localStorage.setItem("token", res.payload);
+    navigate('/friends')
+  })
+  .catch(err => {
+    console.log(err.error);
+  })
+}
+
   return (
     <div>
       <h2>LOGIN</h2>
-      <form>
+      <form onSubmit={login}>
         <div>
           <label htmlFor="username">Username</label>
-          <input id="username"/>
+          <input onChange={handleChange} id="username" name="username"  />
         </div>
         <div>
           <label htmlFor="passowrd">Password</label>
-          <input id="password"/>
+          <input onChange={handleChange} id="password" name="password"  />
         </div>
-        <button>SUBMIT</button>
+        <button onClick={login}>SUBMIT</button>
       </form>
     </div>
   )
