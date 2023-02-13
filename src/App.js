@@ -14,14 +14,14 @@ function App() {
   
     <div className="App">
         <h2>FRIENDS DATABASE</h2>
-          <div>
+          <div className='links'>
             <Link to='/login'>Login</Link>
-          </div>
-          <div>
+          
             <Link to='/friends'>FriendsList</Link>
-          </div>
-          <div>
+          
             <Link to='/friends/add'>AddFriends</Link>
+         
+            <Link to='/friends'>Logout</Link>
           </div>
         <Routes>
           <Route exact path="/" element={<Login />} />
