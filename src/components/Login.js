@@ -22,7 +22,7 @@ const login = (e) => {
   e.preventDefault();
   axios.post('http://localhost:9000/api/login', credentials)
   .then(res => {
-    console.log(res.data.token);
+    console.log(res.data);
     localStorage.setItem("token", res.data.token);
     navigate('/friends');
   })
